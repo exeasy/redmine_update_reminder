@@ -5,9 +5,9 @@ class RemindingMailer < ActionMailer::Base
     Mailer.default_url_options
   end
   
-  def reminder_email(user,issue)
+  def reminder_email(user,watcher,issue)
     @user=user
     @issue=issue
-    mail(to: @user.mail, subject: @issue.subject, cc: Setting.plugin_redmine_update_reminder['cc'] )
+    mail(to: @user.mail, subject: @issue.subject, cc: watcher )
   end
 end
